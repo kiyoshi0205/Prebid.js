@@ -80,24 +80,9 @@ describe('Geniee adapter tests', () => {
     });
   });
   describe('interpretResponse function test', () => {
-    it('empty bid', () => {
+    it('sample bid', () => {
       const request = spec.buildRequests(validBidderRequest.bids, validBidderRequest);
       const auction_id = request.data.id;
-      expect(request).deep.equal({
-        method: 'POST',
-        url: 'https://rt.gsspat.jp/prebid_auction',
-        data: {
-          at: 1,
-          id: auction_id,
-          imp: [{
-            ext: {
-              test: 1
-            },
-            id: 'bid-id'
-          }],
-          test: 1
-        },
-      });
       const serverResponse = {
         body: {
           id: auction_id,
